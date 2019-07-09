@@ -1,0 +1,7 @@
+<h1>Cocktail show page!</h1>
+<h1><%=@cocktail.name%></h1>
+<li>Cocktail recipe: <%=@cocktail.recipe%></li>
+
+<div>
+<%= link_to 'Delete this cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
+</div>

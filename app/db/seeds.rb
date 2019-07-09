@@ -1,8 +1,9 @@
-CocktailIngredient.destroy_all
 User.destroy_all
 Cocktail.destroy_all
-Type.destroy_all
 Ingredient.destroy_all
+Type.destroy_all
+CocktailIngredient.destroy_all
+
 
 # Type.all.destroy
 # Ingredient.all.destroy
@@ -17,6 +18,8 @@ Ingredient.destroy_all
 
 12.times {User.create(name: Faker::Internet.unique.username, email: Faker::Internet.unique.email, password_digest: Faker::Internet.password)}
 
+
+Cocktail.create(name: "New cocktail", recipe: "New recipe", user_id: User.first.id)
 
 Type.create(name: "spirit")
 Type.create(name: "garnish")
@@ -72,5 +75,3 @@ Ingredient.create(name: "Pineapple Juice", type_id: Type.third)
 Ingredient.create(name: "Tonic Water", type_id: Type.third)
 Ingredient.create(name: "Ginger Beer", type_id: Type.third)
 Ingredient.create(name: "Bitter Lemon", type_id: Type.third)
-
-

@@ -25,6 +25,9 @@
             <%= flash[:notice] %>
         </div>
     <% end %>
+    <li><%= link_to('All Users', '/users') %></li>
+    <li><%= link_to('All Cocktails', '/cocktails') %></li>
+      <li><%= link_to('Create Cocktail', '/cocktails/new') %></li>
 
     <%= yield %>
   </body>
