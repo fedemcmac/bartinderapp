@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :users
-  # resources :cocktails
+  resources :cocktails
   # resources :cocktail_ingredients
-  # resources :types
-  # resources :ingredients
+  resources :types, only: [:index]
+  resources :ingredients, only: [:show]
   # resources :comments
   # resources :likes
   

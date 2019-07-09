@@ -10,6 +10,7 @@
 
   <body>
   <%= link_to "Home", welcome_path %>
+  <%= link_to "Ingredients", types_path %>
   <%= link_to "Users", users_path %> __________________________________________________
     <% if logged_in? %>
       Hello <%= @current_user.name %>!   <%= link_to 'log out', logout_path, { method: 'delete' } %>
