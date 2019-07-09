@@ -15,7 +15,7 @@ Ingredient.destroy_all
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times {User.create(name: Faker::Internet.unique.username, email: Faker::Internet.unique.email, password_digest: Faker::Internet.password)}
+12.times {User.create(name: Faker::Internet.unique.username, email: Faker::Internet.unique.email, password_digest: Faker::Internet.password)}
 
 
 Type.create(name: "spirit")

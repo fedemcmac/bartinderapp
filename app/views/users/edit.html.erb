@@ -1,3 +1,4 @@
+<h2>Please update your details here: </h2>
 <%= form_for @user do |f| %>
 
     <%= f.label :name %>
@@ -14,3 +15,5 @@
 
     <%= f.submit%>
 <% end %>
+
+<%= link_to "delete your account", user_path(@user), { method: 'delete' } %>
