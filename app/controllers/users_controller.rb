@@ -23,10 +23,16 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        
     end
 
     def edit
-        @user = User.find(params[:id])
+            @user = User.find(params[:id])
+            if @user.id == session[:user_id]
+                
+            else
+                redirect_to user_path
+            end           
     end
 
     def update
@@ -34,7 +40,7 @@ class UsersController < ApplicationController
     
         @user.update(user_params)
         if @user.valid?
-            redirect_to user_path(@user)
+            redirect_to user_path
         else
             flash[:errors] = @user.errors.full_messages
             render :edit
