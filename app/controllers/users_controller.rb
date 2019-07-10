@@ -50,8 +50,14 @@ class UsersController < ApplicationController
 
     def destroy
         @user = User.find(params[:id])
+        session.delete(:user_id)
         @user.comments.each{|comment| comment.delete}
         @user.likes.each{|like| like.delete}
+        @user.cocktails.each do |cocktail| 
+            cocktail.comments.each{|comment| comment.delete}
+            cocktail.likes.each{|like| like.delete}
+            cocktail.delete
+        end
         @user.delete
         redirect_to welcome_path
     end
