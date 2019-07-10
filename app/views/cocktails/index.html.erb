@@ -2,6 +2,7 @@
 div {display: inline-block;}
 </style>
 <div>
+  
 <h2>Most Popular Cocktails</h2>
     <% Cocktail.most_popular.each do |cocktail| %>
         <ul><%= cocktail.likes.count %> - <%= link_to cocktail.name, cocktail_path(cocktail) %></ul>
