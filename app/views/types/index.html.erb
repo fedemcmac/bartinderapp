@@ -6,19 +6,19 @@ ul {display: inline-block;}
 
 <div>
 <ul><h3>Spirits</h3>
-    <% @types.second.ingredients.each do |ingredient| %>
-        <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
-    <% end %>
-</ul>
-
-<ul><h3>Mixers</h3>
     <% @types.first.ingredients.each do |ingredient| %>
         <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
     <% end %>
 </ul>
 
-<ul><h3>Garnishes</h3>
+<ul><h3>Mixers</h3>
     <% @types.last.ingredients.each do |ingredient| %>
+        <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
+    <% end %>
+</ul>
+
+<ul><h3>Garnishes</h3>
+    <% @types.second.ingredients.each do |ingredient| %>
         <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
     <% end %>
 </ul>

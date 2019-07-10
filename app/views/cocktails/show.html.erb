@@ -3,7 +3,6 @@
 <h4>Mixologist: <%= link_to @cocktail.user.name, user_path(@cocktail.user) %></h4>
 
 <h4>Likes: <%=@cocktail.likes.count%></h4>
-
 <% if @cocktail.likers.include?(session[:user_id]) %>
     <% @like = @cocktail.likes.find{|like| like.user_id == session[:user_id]} %>
     <%= link_to "Unlike", like_path(@like), { method: 'delete' } %>
@@ -14,8 +13,12 @@
         <%= f.submit "Like" %>
     <% end %>
     <% end %>
-    
 
+
+<h4>Ingredients: </h4>
+<% @cocktail.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+    <% end %>
 
 <h3>Cocktail recipe:</h3>
 <div><%=@cocktail.recipe%></div>
@@ -43,6 +46,7 @@
 
 <div>
 <% if @cocktail.user.id == session[:user_id] %>
-<%= link_to 'Delete this cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
+<%= link_to "Edit this Cocktail", edit_cocktail_path(@cocktail) %>
+<%= link_to 'Delete this Cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
 <% end %>
 </div>
