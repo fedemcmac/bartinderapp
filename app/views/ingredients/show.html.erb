@@ -6,7 +6,7 @@
     Sorry no cocktails have been made that use <%=@ingredient.name%>! Why not <%=link_to "create one", new_cocktail_path%>?
     <% else %>
 <% @ingredient.cocktails.each do |cocktail| %>
-    <%= link_to cocktail.name, cocktail_path(cocktail) %> - <%= link_to cocktail.user.name, user_path(cocktail.user) %>
+    <ul><%= link_to cocktail.name, cocktail_path(cocktail) %> - <%= link_to cocktail.user.name, user_path(cocktail.user) %></ul>
 <% end %>
 <% end %>
 </div>

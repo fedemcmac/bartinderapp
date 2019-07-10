@@ -4,3 +4,15 @@
    </li>
     
 <% end %></ul>
+Most cocktails made: <%= link_to User.most_cocktails.name, user_path(User.most_cocktails) %> - <%= User.most_cocktails.cocktails.count%> cocktails made!
+<br>
+User giving out the most love: <%= link_to User.most_likes_given.name, user_path(User.most_likes_given) %> - <%= User.most_likes_given.likes.count%> likes given!
+<br>
+Chattiest user: <%= link_to User.most_chatty.name, user_path(User.most_chatty) %> - <%= User.most_chatty.comments.count %> comments made!
+<br>
+User being shown the most love: <%= link_to User.most_liked.name, user_path(User.most_liked) %> - <%= User.most_liked.liked %> likes on their cocktails!
+<br>
+Most discussed user: <%= link_to User.most_commented.name, user_path(User.most_commented) %> - <%= User.most_commented.commented %> comments on their cocktails!
+<br>
+<%= link_to "Random User", user_path(User.all.sample) %>
+<br>

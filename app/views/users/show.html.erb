@@ -1,11 +1,15 @@
+<style>
+div {display: inline-block;}
+</style>
+
 <h1><%= @user.name %></h1>
 
-
-<div>
-<% if @user.id == session[:user_id] %>
+<h3>Cocktails liked <%= @user.liked %> times!</h3>
+<h3><%= @user.cocktails.count %> cocktails made</h3>
+<h4><% if @user.id == session[:user_id] %>
 <%= link_to "edit this user", edit_user_path %>
-<% end %>
-</div>
+<% end %></h4>
+
 
 <div>
 <h3>User's Cocktails</h3>

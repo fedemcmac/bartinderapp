@@ -8,7 +8,11 @@ class Cocktail < ApplicationRecord
   validates :name, presence: true
   
   def self.most_popular
-    Cocktail.all.sort_by {|cocktail| cocktail.likes.count}.reverse
+    Cocktail.all.max_by(5){|cocktail| cocktail.likes.count}
+  end
+
+  def self.most_comments
+    Cocktail.all.max_by{|cocktail| cocktail.comments.count}
   end
 
   def likers
