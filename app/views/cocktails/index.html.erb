@@ -1,6 +1,10 @@
 <h1>All Cocktails</h1>
 <div>
 <%@cocktails.each do |cocktail|%>
-<%=link_to cocktail.name, cocktail%>
-</div>
+    <%=link_to cocktail.name, cocktail%>
+    <h4>Ingredients:</h4>
+    <% cocktail.ingredients.map do |ingredient| %>
+        <%=link_to ingredient.name, ingredient_path(ingredient) %><br>
+    <% end %>
 <%end%>
+</div>

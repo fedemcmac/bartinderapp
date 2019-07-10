@@ -38,6 +38,7 @@ Ingredient.create(name: "Cointreau", type_id: Type.first.id)
 Ingredient.create(name: "Brandy", type_id: Type.first.id)
 Ingredient.create(name: "Baileys", type_id: Type.first.id)
 Ingredient.create(name: "Aperol", type_id: Type.first.id)
+Ingredient.create(name: "Champagne", type_id: Type.first.id)
 Ingredient.create(name: "Martini Bianco", type_id: Type.first.id)
 Ingredient.create(name: "Kahlua", type_id: Type.first.id)
 
@@ -77,3 +78,18 @@ Ingredient.create(name: "Ginger Beer", type_id: Type.third.id)
 Ingredient.create(name: "Bitter Lemon", type_id: Type.third.id)
 
 
+Cocktail.create(name: "Manhattan", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Bloody Mary", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Margarita", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Old Fashioned", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Mojito", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Daiquiri", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Gin and Tonic", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Negroni", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Aperol Spritz", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+
+
+36.times{CocktailIngredient.create(cocktail_id: Cocktail.all.sample.id, ingredient_id: Ingredient.all.sample.id)}
+
+
+puts "SEEDED"
