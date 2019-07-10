@@ -1,6 +1,8 @@
+Comment.destroy_all
+Like.destroy_all
 CocktailIngredient.destroy_all
-User.destroy_all
 Cocktail.destroy_all
+User.destroy_all
 Ingredient.destroy_all
 Type.destroy_all
 

@@ -1,0 +1,17 @@
+<h1>New Cocktail form</h1>
+
+
+<%= form_for (@cocktail) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :recipe %>
+    <%= f.text_area :recipe%>
+
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+    
+
+    <%= f.submit %>
+<% end %>

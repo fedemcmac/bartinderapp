@@ -1,0 +1,9 @@
+<h2>New Comment</h2>
+<%= form_for @comment do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+    <%= f.hidden_field :cocktail_id, value:  %>
+   <%= f.submit %>
+<% end %>

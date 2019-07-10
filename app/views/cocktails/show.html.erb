@@ -1,0 +1,44 @@
+<h1><%=@cocktail.name%></h1>
+
+Likes: <%=@cocktail.likes.count%> 
+<% if @cocktail.likers.include?(session[:user_id]) %>
+    
+    Unlike
+    <% else %>
+        <%= form_for @like do |f| %>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+        <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+        <%= f.submit %>
+    <% end %>
+    <% end %>
+    
+
+
+<div>Cocktail recipe: <%=@cocktail.recipe%></div>
+
+<h2>Comments:</h2>
+<% @cocktail.comments.each do |comment| %>
+    <ul><%= comment.content %> - <%= comment.user.name %> 
+    <% if comment.user.id == session[:user_id] || @cocktail.user.id == session[:user_id] %>
+    <%= link_to "Delete", comment_path(comment), { method: 'delete' } %>
+    <% end %>
+    </ul>
+    <% end %>
+    
+<br><br><br>
+
+<div><h3>Add Comment</h3>
+<%= form_for @comment do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+    <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+   <%= f.submit %>
+<% end %></div>
+
+<div>
+<% if @cocktail.user.id == session[:user_id] %>
+<%= link_to 'Delete this cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
+<% end %>
+</div>
