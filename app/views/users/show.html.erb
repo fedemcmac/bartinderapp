@@ -1,17 +1,27 @@
 <h1><%= @user.name %></h1>
 
 
-
+<div>
 <% if @user.id == session[:user_id] %>
 <%= link_to "edit this user", edit_user_path %>
 <% end %>
+</div>
 
+<div>
 <h3>User's Cocktails</h3>
 <% @user.cocktails.each do |cocktail| %>
     <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
 <% end %>
+</div>
 
+<div>
 <h3>Liked Cocktails</h3>
 <% @user.likes.each do |like| %>
     <li><%= link_to like.cocktail.name, cocktail_path(like.cocktail) %></li>
 <% end %>
+</div>
+
+<div>
+<h4>Connected Users</h4>
+
+</div>

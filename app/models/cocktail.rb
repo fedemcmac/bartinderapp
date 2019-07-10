@@ -7,13 +7,9 @@ class Cocktail < ApplicationRecord
   validates :name, uniqueness: true
   validates :name, presence: true
   
-  # def comments
-  #   Comment.select{|comment| comment.cocktail_id == self.id}
-  # end
-
-  # def likes
-  #   Like.select{|like| like.cocktail_id == self.id}
-  # end
+  def self.most_popular
+    Cocktail.all.sort_by {|cocktail| cocktail.likes.count}.reverse
+  end
 
   def likers
     likes.map{|like| like.user_id}

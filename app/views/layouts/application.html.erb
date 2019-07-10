@@ -10,11 +10,12 @@
 
   <body>
   
-  <%= link_to "Home", welcome_path %>
-  <%= link_to "Users", users_path %>
-  <%= link_to "Cocktails", cocktails_path %>
-  <%= link_to "Ingredients", types_path %> 
-  <%= link_to "New Cocktail", new_cocktail_path %>  __________________________________________________
+  <%= link_to "Home", welcome_path %>________
+  <%= link_to "Users", users_path %>________
+  <%= link_to "Random Cocktail", cocktail_path(Cocktail.all.sample) %>
+  <%= link_to "Cocktails", cocktails_path %> 
+  <%= link_to "New Cocktail", new_cocktail_path %>_________
+  <%= link_to "Ingredients", types_path %> __________________________________________________
     
     <% if logged_in? %>
       Hello <%= @current_user.name.titleize %>!   <%= link_to "Profile", user_path(session[:user_id]) %>   <%= link_to 'Log Out', logout_path, { method: 'delete' } %>

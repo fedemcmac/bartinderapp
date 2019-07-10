@@ -6,5 +6,8 @@ class User < ApplicationRecord
     validates :name, uniqueness: true
     validates :email, uniqueness: true
     
-    
+    def connected
+        connections = []
+        
+    end
 end

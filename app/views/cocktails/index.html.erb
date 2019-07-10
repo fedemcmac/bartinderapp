@@ -1,6 +1,17 @@
-<h1>All Cocktails</h1>
 <div>
-<%@cocktails.each do |cocktail|%>
-<%=link_to cocktail.name, cocktail%>
+<h2>Most Popular Cocktails</h2>
+    <% counter = 0 %>
+    
+    <% Cocktail.most_popular.each do |cocktail| %>
+        <ul><%= cocktail.likes.count %> - <%= cocktail.name %></ul>
+    
+    <% end %>
+    <% end %>
 </div>
+
+<div>
+<h2>All Cocktails - <%=@cocktails.count%></h2>
+    <%@cocktails.each do |cocktail|%>
+    <li><%=link_to cocktail.name, cocktail%></li>
 <%end%>
+</div>
