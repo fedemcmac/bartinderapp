@@ -1,10 +1,22 @@
-<h1>All Cocktails</h1>
+<style>
+div {display: inline-block;}
+</style>
 <div>
-<%@cocktails.each do |cocktail|%>
-    <%=link_to cocktail.name, cocktail%>
-    <h4>Ingredients:</h4>
-    <% cocktail.ingredients.map do |ingredient| %>
-        <%=link_to ingredient.name, ingredient_path(ingredient) %><br>
+  
+<h2>Most Popular Cocktails</h2>
+    <% Cocktail.most_popular.each do |cocktail| %>
+        <ul><%= cocktail.likes.count %> - <%= link_to cocktail.name, cocktail_path(cocktail) %></ul>
     <% end %>
+</div>
+
+<div>
+<h2>Most Discussed Cocktail</h2>
+        <%= link_to Cocktail.most_comments.name, cocktail_path(Cocktail.most_comments) %>
+</div>
+
+<div>
+<h2>All Cocktails - <%=@cocktails.count%></h2>
+    <%@cocktails.each do |cocktail|%>
+    <ul><%=link_to cocktail.name, cocktail%></ul>
 <%end%>
 </div>
