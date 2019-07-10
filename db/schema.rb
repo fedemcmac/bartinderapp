@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 720190708131420) do
+ActiveRecord::Schema.define(version: 720190708131427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 720190708131420) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "glass_id"
+    t.index ["glass_id"], name: "index_cocktails_on_glass_id"
     t.index ["user_id"], name: "index_cocktails_on_user_id"
   end
 
@@ -41,6 +43,13 @@ ActiveRecord::Schema.define(version: 720190708131420) do
     t.datetime "updated_at", null: false
     t.index ["cocktail_id"], name: "index_comments_on_cocktail_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "glasses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "url"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -76,6 +85,7 @@ ActiveRecord::Schema.define(version: 720190708131420) do
 
   add_foreign_key "cocktail_ingredients", "cocktails"
   add_foreign_key "cocktail_ingredients", "ingredients"
+  add_foreign_key "cocktails", "glasses"
   add_foreign_key "cocktails", "users"
   add_foreign_key "comments", "cocktails"
   add_foreign_key "comments", "users"
