@@ -19,7 +19,7 @@ Glass.destroy_all
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-12.times {User.create(name: Faker::Internet.unique.username, email: Faker::Internet.unique.email, password_digest: Faker::Internet.password)}
+12.times {User.create(name: Faker::Internet.unique.username, email: Faker::Internet.unique.email, password_digest: "cocktail")}
 
 
 Type.create(name: "spirit")
@@ -39,6 +39,7 @@ Ingredient.create(name: "Cointreau", type_id: Type.first.id)
 Ingredient.create(name: "Brandy", type_id: Type.first.id)
 Ingredient.create(name: "Baileys", type_id: Type.first.id)
 Ingredient.create(name: "Aperol", type_id: Type.first.id)
+Ingredient.create(name: "Champagne", type_id: Type.first.id)
 Ingredient.create(name: "Martini Bianco", type_id: Type.first.id)
 Ingredient.create(name: "Kahlua", type_id: Type.first.id)
 
@@ -85,6 +86,7 @@ Glass.create(name: "Shot", url: "Shot.jpeg")
 Glass.create(name: "Champagne", url: "Champagne.jpeg")
 #
 
+<<<<<<< HEAD
 # glasses = [
 #  {name: "Highball", url: Rails.root.join("app/images/Highball.png")},
 #  {name: "Rocks", url: Rails.root.join("app/images/Rocks.png")},
@@ -96,3 +98,20 @@ Glass.create(name: "Champagne", url: "Champagne.jpeg")
 # glass.each do |img|
 #   Glass.find_or_create_by(url: img.url, name: img.name)
 # end
+=======
+Cocktail.create(name: "Manhattan", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Bloody Mary", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Margarita", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Old Fashioned", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Mojito", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Daiquiri", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Gin and Tonic", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Negroni", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+Cocktail.create(name: "Aperol Spritz", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
+
+
+36.times{CocktailIngredient.create(cocktail_id: Cocktail.all.sample.id, ingredient_id: Ingredient.all.sample.id)}
+
+
+puts "SEEDED"
+>>>>>>> 34a460f6e3ca266d9c012c80af1b373c7d20412c

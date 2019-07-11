@@ -17,7 +17,7 @@
 
 <h4>Ingredients: </h4>
 <% @cocktail.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+    <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
     <% end %>
 
 <h3>Cocktail recipe:</h3>
