@@ -1,22 +1,22 @@
-<style>
-div {display: inline-block;}
-</style>
-<div>
+<div class="flex-container">
+        
+        <div class="column">
+         <h2>Most Popular Cocktails</h2>
+            <% Cocktail.most_popular.each do |cocktail| %>
+                <ul><%= link_to cocktail.name, cocktail_path(cocktail) %>, <%= cocktail.likes.count %> likes</ul>
+            <% end %>
+        </div>
 
-<h2>Most Popular Cocktails</h2>
-    <% Cocktail.most_popular.each do |cocktail| %>
-        <ul><%= cocktail.likes.count %> - <%= link_to cocktail.name, cocktail_path(cocktail) %></ul>
-    <% end %>
-</div>
+        <div class="column">
+            <h2>Most Discussed Cocktail</h2>
+                    <%= link_to Cocktail.most_comments.name, cocktail_path(Cocktail.most_comments) %>
+            </div>
 
-<div>
-<h2>Most Discussed Cocktail</h2>
-        <%= link_to Cocktail.most_comments.name, cocktail_path(Cocktail.most_comments) %>
-</div>
+        <div class="column">
+            <h2>We currently have <%=@cocktails.count%> Cocktails</h2>
+                <%@cocktails.each do |cocktail|%>
+                    <li><%=link_to cocktail.name, cocktail%></li>
+            <% end %>
+        </div>
 
-<div>
-<h2>All Cocktails - <%=@cocktails.count%></h2>
-    <%@cocktails.each do |cocktail|%>
-    <ul><%=link_to cocktail.name, cocktail%></ul>
-<%end%>
 </div>

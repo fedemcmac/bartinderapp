@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+
+
+ 
+ body{
+    font-family: "Elsie",“Franklin Gothic”,sans-serif;
+    background: url("background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 1450px;
+  } 
+
+.flex-container {
+    align-items: center, top;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;  
+}
+
+.column {
+    border-radius: 10px;
+    border: 2px solid #000000;
+    justify-content: space-between;
+    background-color: #F69A0D;
+    padding: 35px;
+    margin: 50px;
+}
+
+#spirits {
+    margin-left: 200px
+}
+
+#garnishes {
+    margin-right: 200px
+}
+
+h1 {
+    align-items: center;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+#bottom {
+    margin-top: 200px
+}
+
+#bot-mid {
+    margin-right: 5%;
+}
+
+#bot-right {
+    margin-right: 10%;
+}
+
+#new {
+    margin: 100px;
+}
