@@ -1,21 +1,29 @@
+
+
 <h3><%= @ingredient.name %></h3>
 
-<div>
-<h4>Cocktails that include <%=@ingredient.name%>:</h4> 
-<% if @ingredient.cocktails.empty? %>
-    Sorry no cocktails have been made that use <%=@ingredient.name%>! Why not <%=link_to "create one", new_cocktail_path%>?
-    <% else %>
-<% @ingredient.cocktails.each do |cocktail| %>
-    <ul><%= link_to cocktail.name, cocktail_path(cocktail) %> - <%= link_to cocktail.user.name, user_path(cocktail.user) %></ul>
-<% end %>
-<% end %>
-</div>
+<div class="flex-container">
+    <div class="column">
 
-<div>
-<h4>Select another <%= @ingredient.type.name%>?</h4>
-<% @ingredient.type.ingredients.each do |ing| %>
-    <%= link_to ing.name, ingredient_path(ing) %>
-    <% end %>
+
+        <div>
+        <h4>Cocktails that include <%=@ingredient.name%>:</h4> 
+        <% if @ingredient.cocktails.empty? %>
+            Sorry no cocktails have been made that use <%=@ingredient.name%>! Why not <%=link_to "create one", new_cocktail_path%>?
+            <% else %>
+        <% @ingredient.cocktails.each do |cocktail| %>
+            <ul><%= link_to cocktail.name, cocktail_path(cocktail) %> - <%= link_to cocktail.user.name, user_path(cocktail.user) %></ul>
+        <% end %>
+        <% end %>
+        </div>
+
+        <div>
+        <h4>Select another <%= @ingredient.type.name%>?</h4>
+        <% @ingredient.type.ingredients.each do |ing| %>
+            <%= link_to ing.name, ingredient_path(ing) %>
+            <% end %>
+        </div>
+    </div>
 </div>
 
 

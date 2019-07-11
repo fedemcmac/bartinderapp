@@ -1,19 +1,25 @@
-<h2>Please update your details here: </h2>
-<%= form_for @user do |f| %>
+<div class="flex-container">
+    <div id="new", class="column">
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    
-    <%= f.label :email %>
-    <%= f.email_field :email %><br>
-    
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
+        <h2>Please update your details here: </h2>
+        <%= form_for @user do |f| %>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+            <%= f.label :name %>
+            <%= f.text_field :name %><br>
+            
+            <%= f.label :email %>
+            <%= f.email_field :email %><br>
+            
+            <%= f.label :password %>
+            <%= f.password_field :password %><br>
 
-    <%= f.submit%>
-<% end %>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %><br>
 
-<%= link_to "delete your account", user_path(@user), { method: 'delete' } %>
+            <%= f.submit%>
+        <% end %>
+
+        <%= link_to "delete your account", user_path(@user), { method: 'delete' } %>
+
+    </div>
+</div>

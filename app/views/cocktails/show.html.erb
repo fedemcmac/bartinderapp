@@ -8,48 +8,56 @@
     <%= link_to "Unlike", like_path(@like), { method: 'delete' } %>
     <% else %>
         <%= form_for @like do |f| %>
-        <%= f.hidden_field :user_id, value: session[:user_id] %>
-        <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
-        <%= f.submit "Like" %>
-    <% end %>
-    <% end %>
-
-
-<h4>Ingredients: </h4>
-<% @cocktail.ingredients.each do |ingredient| %>
-    <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+            <%= f.hidden_field :user_id, value: session[:user_id] %>
+            <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+            <%= f.submit "Like" %>
+        <% end %>
     <% end %>
 
-<h3>Cocktail recipe:</h3>
-<div><%=@cocktail.recipe%></div>
 
-<h3>Cocktail glass:</h3>
-<%=image_tag @cocktail.glass.url %>
 
-<h3>Comments:</h3>
-<% @cocktail.comments.each do |comment| %>
-    <ul><%= comment.content %> - <%= comment.user.name %>
-    <% if comment.user.id == session[:user_id] || @cocktail.user.id == session[:user_id] %>
-    <%= link_to "Delete", comment_path(comment), { method: 'delete' } %>
-    <% end %>
-    </ul>
-    <% end %>
+<div class="flex-container">
+        
+    <div class="column">
+        <h4>Ingredients: </h4>
+        <% @cocktail.ingredients.each do |ingredient| %>
+            <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+        <% end %>
+    </div>
 
-<br><br><br>
-
-<div><h3>Add Comment</h3>
-<%= form_for @comment do |f| %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
-    <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
-   <%= f.submit %>
-<% end %></div>
+    <div class="column">
+        <h3>Cocktail recipe:</h3>
+        <div><%=@cocktail.recipe%></div>
+    </div>
+ 
+<div class="flex-container">
+    <div class="column">
+        <h3>Cocktail glass:</h3>
+        <%=image_tag @cocktail.glass.url %>
+        <h3>Add Comment</h3>
+        <%= form_for @comment do |f| %>                
+            <%= f.text_area :content %>
+            <%= f.hidden_field :user_id, value: session[:user_id] %>
+            <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+        
+    <div class="column">
+        <h3>Comments:</h3>
+        <% @cocktail.comments.each do |comment| %>
+            <ul><%= comment.content %> - <%= comment.user.name %>
+            <% if comment.user.id == session[:user_id] || @cocktail.user.id == session[:user_id] %>
+                <%= link_to "Delete", comment_path(comment), { method: 'delete' } %>
+            <% end %>
+                </ul>
+        <% end %>
+    </div>
+</div>
 
 <div>
-<% if @cocktail.user.id == session[:user_id] %>
-<%= link_to "Edit this Cocktail", edit_cocktail_path(@cocktail) %>
-<%= link_to 'Delete this Cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
-<% end %>
+    <% if @cocktail.user.id == session[:user_id] %>
+        <%= link_to "Edit this Cocktail", edit_cocktail_path(@cocktail) %>
+        <%= link_to 'Delete this Cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
+    <% end %>
 </div>

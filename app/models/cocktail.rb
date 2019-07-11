@@ -10,7 +10,7 @@ class Cocktail < ApplicationRecord
 
 
   def self.most_popular
-    Cocktail.all.max_by(5){|cocktail| cocktail.likes.count}
+    Cocktail.all.max_by(7){|cocktail| cocktail.likes.count}
   end
 
 

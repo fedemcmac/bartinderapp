@@ -1,27 +1,33 @@
-<h1>Edit Your Cocktail form</h1>
+<div class="flex-container">
+    <div id="new", class="column">
+
+        <h1>Edit Your Cocktail form</h1>
 
 
-<%= form_for (@cocktail) do |f| %>
+        <%= form_for (@cocktail) do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
+            <%= f.label :name %>
+            <%= f.text_field :name %><br><br>
 
-    <%= f.label :recipe %>
-    <%= f.text_area :recipe%><br><br>
+            <%= f.label :recipe %>
+            <%= f.text_area :recipe%><br><br>
 
-    <%= f.label :spirits %><br>
-    <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.spirits, :id, :name) %><br><br>
+            <%= f.label :spirits %><br>
+            <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.spirits, :id, :name) %><br><br>
 
-    <%= f.label :mixers %><br>
-    <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.mixers, :id, :name) %><br><br>
+            <%= f.label :mixers %><br>
+            <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.mixers, :id, :name) %><br><br>
 
-    <%= f.label :garnish %><br>
-    <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.garnishes, :id, :name) %><br><br>
+            <%= f.label :garnish %><br>
+            <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.garnishes, :id, :name) %><br><br>
 
 
-    
+            
 
-    <%= f.hidden_field :user_id, value: session[:user_id] %>
+            <%= f.hidden_field :user_id, value: session[:user_id] %>
 
-    <%= f.submit %>
-<% end %>
+            <%= f.submit %>
+        <% end %>
+
+    </div>
+</div>
