@@ -18,10 +18,13 @@
     <%= f.label :garnish %><br>
     <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.garnishes, :id, :name) %><br><br>
 
+    <%= f.label :glass %><br>
+    <%=f.collection_select :glass_id, Glass.all, :id, :name %>
 
-    
+
 
     <%= f.hidden_field :user_id, value: session[:user_id] %>
+
 
     <%= f.submit %>
 <% end %>

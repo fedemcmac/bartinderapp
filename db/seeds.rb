@@ -5,6 +5,7 @@ Cocktail.destroy_all
 User.destroy_all
 Ingredient.destroy_all
 Type.destroy_all
+Glass.destroy_all
 
 
 # Type.all.destroy
@@ -77,7 +78,27 @@ Ingredient.create(name: "Tonic Water", type_id: Type.third.id)
 Ingredient.create(name: "Ginger Beer", type_id: Type.third.id)
 Ingredient.create(name: "Bitter Lemon", type_id: Type.third.id)
 
+Glass.create(name: "Highball", url: "Highball.jpeg")
+Glass.create(name: "Rocks", url: "Rocks.jpeg")
+Glass.create(name: "Martini", url: "Martini.jpeg")
+Glass.create(name: "Coupe", url: "Coupe.jpeg")
+Glass.create(name: "Shot", url: "Shot.jpeg")
+Glass.create(name: "Champagne", url: "Champagne.jpeg")
+#
 
+<<<<<<< HEAD
+# glasses = [
+#  {name: "Highball", url: Rails.root.join("app/images/Highball.png")},
+#  {name: "Rocks", url: Rails.root.join("app/images/Rocks.png")},
+#  {name: "Martini", url: Rails.root.join("app/images/Martini.png")},
+#  {name: "Coupe", url: Rails.root.join("app/images/Coupe.png")},
+#  {name: "Shot", url: Rails.root.join("app/images/Shot.png")},
+#  {name: "Champagne", url: Rails.root.join("app/images/Champagne.png")}]
+#
+# glass.each do |img|
+#   Glass.find_or_create_by(url: img.url, name: img.name)
+# end
+=======
 Cocktail.create(name: "Manhattan", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
 Cocktail.create(name: "Bloody Mary", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
 Cocktail.create(name: "Margarita", recipe: Faker::Food.unique.description, user_id: User.all.sample.id)
@@ -93,3 +114,4 @@ Cocktail.create(name: "Aperol Spritz", recipe: Faker::Food.unique.description, u
 
 
 puts "SEEDED"
+>>>>>>> 34a460f6e3ca266d9c012c80af1b373c7d20412c
