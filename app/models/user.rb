@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :name, uniqueness: true
     validates :email, uniqueness: true
     
+    
     def self.most_cocktails
         User.all.max_by{|user| user.cocktails.count}
     end
