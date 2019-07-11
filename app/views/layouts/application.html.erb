@@ -3,19 +3,20 @@
   <head>
     <title>Bartinderapp</title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  
+
   <%= link_to "Home", welcome_path %>
   <%= link_to "Users", users_path %>
   <%= link_to "Cocktails", cocktails_path %>
-  <%= link_to "Ingredients", types_path %> 
+  <%= link_to "Ingredients", types_path %>
   <%= link_to "New Cocktail", new_cocktail_path %>  __________________________________________________
-    
+
     <% if logged_in? %>
       Hello <%= @current_user.name.titleize %>!   <%= link_to "Profile", user_path(session[:user_id]) %>   <%= link_to 'Log Out', logout_path, { method: 'delete' } %>
     <% else %>
