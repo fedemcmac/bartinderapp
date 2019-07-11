@@ -5,21 +5,25 @@ div {display: inline-block;}
 
 <div class="flex-container">
     <div class="column">
-        <h1><%= @user.name %></h1>
-        <h3>Cocktails liked <%= @user.liked %> times!</h3>
-        <h3><%= @user.cocktails.count %> cocktails made</h3>
+        <h1><%= @user.name %></h1><br>
+        
+        
+        <div>
+        <h3>Cocktails created</h3>
+        <% @user.cocktails.each do |cocktail| %>
+            <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li><br>
+        <% end %>
+        </div>
+
+        <h3>Number of likes received: <%= @user.liked %></h3><br>
+        
+        
         <h4><% if @user.id == session[:user_id] %>
         <%= link_to "edit this user", edit_user_path %>
         <% end %></h4>
 
 
-        <div>
-        <h3>User's Cocktails</h3>
-        <% @user.cocktails.each do |cocktail| %>
-            <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-        <% end %>
-        </div>
-
+        
         <div>
         <h3>Liked Cocktails</h3>
         <% @user.likes.each do |like| %>
