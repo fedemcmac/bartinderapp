@@ -32,13 +32,24 @@
     justify-content: space-between;  
 }
 
+#ingredients{
+    overflow: scroll;
+}
+
 .column {
     border-radius: 10px;
-    border: 2px solid #000000;
+    /* border: 1px solid gray; */
+    
+    box-shadow: 3px 3px 24px rgba(0, 0, 0, 0.3);
+    
     justify-content: space-between;
-    background-color: #F69A0D;
+    background-color: rgba(244,194,194,0.6);
+    /* opacity: 0.5; */
     padding: 35px;
     margin: 50px;
+    height: 50vh;
+    width: 100%;
+    /* overflow: scroll; */
 }
 
 #spirits {
@@ -70,4 +81,77 @@ h1 {
 
 #new {
     margin: 100px;
+}
+
+.btn {
+    background-color: rgba(176,224,230, 0.7);
+    color: black;
+    width: 10vh;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    color: black;
+    background-color: rgba(176,224,230, 1);
+}
+
+.bananas {
+    margin-left: 50px;
+    display: flex;
+}
+
+.booze_image {
+    height:20vh;
+}
+
+.cocknames {
+    margin-left: 4vh;    
+}
+
+.field {
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.field:focus {
+    outline-color: blueviolet;
+}
+a {
+    color: blueviolet;
+}
+
+.comment-list {
+    z-index: -1;
+    overflow: scroll;
+    height: 22vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
+
+.add-comment {
+    z-index:0;
+    background-attachment: fixed;
+}
+
+/* a:before{
+    content:"/";
+} */
+ a:hover{
+    text-emphasis: 2000;
+    text-decoration: floralwhite;
+}
+
+li a{
+    color: rgb(46, 43, 226);
+    font-size: 1.5rem;
+}
+
+.hello{
+    margin-right: 20px;
+    font-size: 2.5vh;
+}
+
+.text-left{
+    font-size: 2.5vh;
+
 }
