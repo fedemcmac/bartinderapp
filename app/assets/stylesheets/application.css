@@ -36,9 +36,13 @@
     border-radius: 10px;
     border: 2px solid #000000;
     justify-content: space-between;
-    background-color: #F69A0D;
+    background-color: rgba(244,194,194,0.6);
+    /* opacity: 0.5; */
     padding: 35px;
     margin: 50px;
+    height: 50vh;
+    width: 100%;
+    overflow: scroll;
 }
 
 #spirits {
@@ -70,4 +74,30 @@ h1 {
 
 #new {
     margin: 100px;
+}
+
+.btn {
+    background-color: powderblue;
+    color: black;
+}
+
+.btn:hover {
+    color: black;
+    background-color: aquamarine;
+}
+
+.bananas {
+    margin-left: 50px;
+}
+
+.field {
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.field:focus {
+    outline-color: blueviolet;
+}
+a{
+    color: #5f009a;
 }
