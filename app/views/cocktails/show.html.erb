@@ -1,53 +1,48 @@
-<div class = "bananas" ><h1><%=@cocktail.name%></h1>
-
-<h4>Mixologist: <%= link_to @cocktail.user.name, user_path(@cocktail.user) %></h4>
-
+<div class = "bananas" >
 <div>
-<h4>Likes: <%=@cocktail.likes.count%></h4>
-<% if @cocktail.likers.include?(session[:user_id]) %>
-    <% @like = @cocktail.likes.find{|like| like.user_id == session[:user_id]} %>
-    <%= link_to "Unlike", like_path(@like), { method: 'delete', class: "btn" } %>
-    <% else %>
-        <%= form_for @like do |f| %>
-            <%= f.hidden_field :user_id, value: session[:user_id] %>
-            <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
-            <%= f.submit "Like", class: "btn" %>
+    <%=image_tag @cocktail.glass.url, :class=>"booze_image" %>
+    </div>
+    <div class="cocknames">
+
+    <h1><%=@cocktail.name%></h1>
+    <h4>Mixologist: <%= link_to @cocktail.user.name, user_path(@cocktail.user) %></h4>
+    
+    <h4>Likes: <%=@cocktail.likes.count%></h4>
+    <% if @cocktail.likers.include?(session[:user_id]) %>
+        <% @like = @cocktail.likes.find{|like| like.user_id == session[:user_id]} %>
+        <%= link_to "Unlike", like_path(@like), { method: 'delete', class: "btn" } %>
+        <% else %>
+            <%= form_for @like do |f| %>
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+                <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+                <%= f.submit "Like", class: "btn" %>
+            <% end %>
         <% end %>
-    <% end %>
-</div>
+    </div>
 </div>
 
 
 <div class="flex-container">
         
-    <div class="column">
+    <div class="column cockshow" id="ingredients">
         <h4>Ingredients: </h4>
         <% @cocktail.ingredients.each do |ingredient| %>
             <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
         <% end %>
     </div>
 
-    <div class="column">
+    <div class="column cockshow">
         <h3>Cocktail recipe:</h3>
         <div><%=@cocktail.recipe%></div>
-        <h3>Add Comment</h3>
-        <%= form_for @comment do |f| %>                
-            <%= f.text_area :content, class:"field" %>
-            <%= f.hidden_field :user_id, value: session[:user_id] %>
-            <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
-            <%= f.submit "Post Comment", class:"btn"%>
-        <% end %>
-    </div>
- 
-<div class="flex-container">
-    <div class="column">
-        <h3>Cocktail glass:</h3>
-        <%=image_tag @cocktail.glass.url %>
         
     </div>
+
+    
         
     <div class="column">
-        <h3>Comments:</h3>
+    <h3>Comments:</h3>
+
+    <div class="comment-list">
         <% @cocktail.comments.each do |comment| %>
             <ul><%= comment.content %> - <%= comment.user.name %>
             <% if comment.user.id == session[:user_id] || @cocktail.user.id == session[:user_id] %>
@@ -55,6 +50,17 @@
             <% end %>
                 </ul>
         <% end %>
+
+    </div>
+    <div class="add-comment">
+        <h4>Add Comment</h4>
+        <%= form_for @comment do |f| %>                
+            <%= f.text_area :content, class:"field" %>
+            <%= f.hidden_field :user_id, value: session[:user_id] %>
+            <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+            <%= f.submit "Post", class:"btn"%>
+        <% end %>
+    </div>
     </div>
 </div>
 
