@@ -1,0 +1,33 @@
+
+    <%= form_for (@cocktail) do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name %><br><br>
+
+        <%= f.label :recipe %>
+        <%= f.text_area :recipe%><br><br>
+
+        <%= f.label :spirits %><br>
+        <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.spirits, :id, :name) %><br><br>
+
+        <%= f.label :mixers %><br>
+        <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.mixers, :id, :name) %><br><br>
+
+        <%= f.label :garnish %><br>
+        <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.garnishes, :id, :name) %><br><br>
+
+         <%= f.label :glass %><br>
+         <%= collection_select(:cocktail, :glass_id, Glass.all, :id, :name )%><br>
+         <br>
+        <div class="flex-container">
+        <%= image_tag "Highball.jpeg"%>
+        <%= image_tag "Rocks.jpeg" %>
+        <%= image_tag "Martini.jpeg" %>
+        <%= image_tag "Coupe.jpeg" %>
+        <%= image_tag "Shot.jpeg" %>
+        <%= image_tag "Champagne.jpeg" %>
+        </div><br>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+        <%= f.submit %>
+        <%end%>
