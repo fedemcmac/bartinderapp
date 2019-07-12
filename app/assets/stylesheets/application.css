@@ -32,9 +32,7 @@
     justify-content: space-between;  
 }
 
-#ingredients{
-    overflow: scroll;
-}
+
 
 .column {
     border-radius: 10px;
@@ -68,16 +66,16 @@ h1 {
 }
 
 #bottom {
-    margin-top: 200px
+    margin-top: 100px;
 }
-
+/* 
 #bot-mid {
     margin-right: 5%;
-}
+} */
 
-#bot-right {
+/* #bot-right {
     margin-right: 10%;
-}
+} */
 
 #new {
     margin: 100px;
@@ -88,6 +86,7 @@ h1 {
     color: black;
     width: 10vh;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    margin: 2px;
 }
 
 .btn:hover {
@@ -95,54 +94,32 @@ h1 {
     background-color: rgba(176,224,230, 1);
 }
 
-.bananas {
-    margin-left: 50px;
-    display: flex;
-}
+
 
 .booze_image {
-    height:20vh;
+    height:22vh;
 }
 
-.cocknames {
-    margin-left: 4vh;    
-}
 
-.field {
-    background-color: whitesmoke;
-    border-radius: 5px;
-}
 
-.field:focus {
-    outline-color: blueviolet;
-}
-a {
-    color: blueviolet;
-}
 
-.comment-list {
-    z-index: -1;
-    overflow: scroll;
-    height: 22vh;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
-}
 
-.add-comment {
-    z-index:0;
-    background-attachment: fixed;
-}
+
+
+
+
+
 
 /* a:before{
     content:"/";
 } */
+
  a:hover{
     text-emphasis: 2000;
     text-decoration: floralwhite;
 }
 
 li a{
-    color: rgb(46, 43, 226);
     font-size: 1.5rem;
 }
 
@@ -154,4 +131,24 @@ li a{
 .text-left{
     font-size: 2.5vh;
 
+}
+
+.bacon-butties{
+    display: flex;
+}
+
+.newcocktail{
+    height:130vh; 
+}
+
+/* .big-div {
+    display: flex; */
+/* } */
+
+.form-embiggen {
+    height: 1100px;
+}
+
+.homepage{
+    height: 130px;
 }

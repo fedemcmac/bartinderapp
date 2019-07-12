@@ -9,14 +9,16 @@
 
         <div class="column">
             <h2>Most Discussed Cocktail</h2>
-                    <%= link_to Cocktail.most_comments.name, cocktail_path(Cocktail.most_comments) %>
-            </div>
+                <%= link_to Cocktail.most_comments.name, cocktail_path(Cocktail.most_comments) %>
+        </div>
 
         <div class="column">
             <h2>We currently have <%=@cocktails.count%> Cocktails</h2>
-                <%@cocktails.each do |cocktail|%>
+            <div class="allcocktails">
+                <%@cocktails.reverse.each do |cocktail|%>
                     <li><%=link_to cocktail.name, cocktail%></li>
-            <% end %>
+               <% end %>
+            </div>
         </div>
 
 </div>

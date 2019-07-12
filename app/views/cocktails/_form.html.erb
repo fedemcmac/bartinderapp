@@ -1,0 +1,38 @@
+<%= form_for (@cocktail) do |f| %>
+    <div class="">
+    <h6><%= f.label :name %></h6>
+    <%= f.text_field :name, class: "field" %><br><br>
+
+    <h6><%= f.label :recipe %></h6>
+    <%= f.text_area :recipe, class: "field"%><br><br>
+        <div class="big-div">
+            <div class="spirit">
+                <h4><%= f.label :spirits %></h4>
+                <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.spirits, :id, :name) %><br><br>
+            </div>
+                <div class="mixers">
+
+                    <h4><%= f.label :mixers %></h4>
+                    <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.mixers, :id, :name) %><br><br>
+                </div>
+                <div class="garnish">
+                <h4><%= f.label :garnish %></h4>
+                    <%= collection_check_boxes(:cocktail, :ingredient_ids, Type.garnishes, :id, :name) %><br><br>
+                </div>
+
+        </div>             
+            <h5><%= f.label :glass %></h5>
+            <%= collection_select(:cocktail, :glass_id, Glass.all, :id, :name )%><br>
+
+            <div class="flex-container">
+            <%= image_tag "Highball.jpeg"%>
+            <%= image_tag "Rocks.jpeg" %>
+            <%= image_tag "Martini.jpeg" %>
+            <%= image_tag "Coupe.jpeg" %>
+            <%= image_tag "Shot.jpeg" %>
+            <%= image_tag "Champagne.jpeg" %>
+    </div>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+    <%= f.submit "Done", class:'btn' %>
+    <%end%>

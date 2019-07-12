@@ -5,9 +5,10 @@
     <div class="cocknames">
 
     <h1><%=@cocktail.name%></h1>
-    <h4>Mixologist: <%= link_to @cocktail.user.name, user_path(@cocktail.user) %></h4>
+    <h4>Mixologist: <%= link_to @cocktail.user.name.titleize, user_path(@cocktail.user) %></h4>
     
     <h4>Likes: <%=@cocktail.likes.count%></h4>
+    <div class="bacon-butties">
     <% if @cocktail.likers.include?(session[:user_id]) %>
         <% @like = @cocktail.likes.find{|like| like.user_id == session[:user_id]} %>
         <%= link_to "Unlike", like_path(@like), { method: 'delete', class: "btn" } %>
@@ -18,22 +19,27 @@
                 <%= f.submit "Like", class: "btn" %>
             <% end %>
         <% end %>
+        <% if @cocktail.user.id == session[:user_id] %>
+        <%= link_to "Edit", edit_cocktail_path(@cocktail), class: "btn" %>
+        <%= link_to 'Delete', cocktail_path(@cocktail), {method: 'delete', class: 'btn'} %>
+    <% end %>
+    </div>
     </div>
 </div>
 
 
 <div class="flex-container">
         
-    <div class="column cockshow" id="ingredients">
+    <div class="column drinkshow" id="ingredients">
         <h4>Ingredients: </h4>
         <% @cocktail.ingredients.each do |ingredient| %>
             <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
         <% end %>
     </div>
 
-    <div class="column cockshow">
+    <div class="column drinkshow">
         <h3>Cocktail recipe:</h3>
-        <div><%=@cocktail.recipe%></div>
+        <div class="recipeshow"><%=@cocktail.recipe%></div>
         
     </div>
 
@@ -43,7 +49,7 @@
     <h3>Comments:</h3>
 
     <div class="comment-list">
-        <% @cocktail.comments.each do |comment| %>
+        <% @cocktail.comments.reverse.each do |comment| %>
             <ul><%= comment.content %> - <%= comment.user.name %>
             <% if comment.user.id == session[:user_id] || @cocktail.user.id == session[:user_id] %>
                 <%= link_to "Delete", comment_path(comment), { method: 'delete' } %>
@@ -64,9 +70,5 @@
     </div>
 </div>
 
-<div>
-    <% if @cocktail.user.id == session[:user_id] %>
-        <%= link_to "Edit this Cocktail", edit_cocktail_path(@cocktail) %>
-        <%= link_to 'Delete this Cocktail', cocktail_path(@cocktail), {method: 'delete'} %>
-    <% end %>
-</div>
+
+    

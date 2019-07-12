@@ -1,28 +1,37 @@
 <h2>These are all our ingredients</h2>
 
 <div class="flex-container">
-    <div id="spirits", class="column">
-        <ul><h3>Spirits</h3>
-            <% @types.first.ingredients.each do |ingredient| %>
-                <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
-            <% end %>
-        </ul>
+    <div class="column">
+        <h3>Spirits</h3>
+        <div class="type-list">
+        <ul>
+                <% @types.first.ingredients.each do |ingredient| %>
+                    <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
+                <% end %>
+                 </ul>
+        </div>
     </div>
 
      <div class="column">
-        <ul><h3>Mixers</h3>
+        <h3>Mixers</h3>
+        <div class="type-list">
+        <ul>
             <% @types.last.ingredients.each do |ingredient| %>
                 <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
             <% end %>
         </ul>
+        </div>
     </div>
 
     <div id="garnishes", class="column">
-        <ul><h3>Garnishes</h3>
+        <h3>Garnishes</h3>
+        <div class="type-list">
+        <ul>
             <% @types.second.ingredients.each do |ingredient| %>
                 <li><%= link_to ingredient.name, ingredient_path(ingredient) %>
             <% end %>
         </ul>
+        </div>
     </div>
 </div>
 

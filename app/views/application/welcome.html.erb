@@ -4,15 +4,15 @@
 <% end %>
 
 <div style="margin-bottom: 200 px", class="flex-container">
-    <div class="column">
+    <div class="column homepage">
         Most cocktails made: <%= link_to User.most_cocktails.name, user_path(User.most_cocktails) %> - <%= User.most_cocktails.cocktails.count%> cocktails
     </div>
     
-    <div class="column">
+    <div class="column homepage">
         User giving out the most love: <%= link_to User.most_likes_given.name, user_path(User.most_likes_given) %> - <%= User.most_likes_given.likes.count%> likes
     </div>
     
-    <div class="column">
+    <div class="column homepage">
         Chattiest user: <%= link_to User.most_chatty.name, user_path(User.most_chatty) %> - <%= User.most_chatty.comments.count %> comments given
     </div>      
 </div>
@@ -20,15 +20,15 @@
 
 <div id="bottom", class="flex-container">
 
-    <div class="column">
+    <div class="column homepage">
         User being shown the most love: <br><%= link_to User.most_liked.name, user_path(User.most_liked) %> has <%= User.most_liked.liked %> likes on their cocktails
     </div>
         
-    <div id="bot-mid", class="column">
+    <div id="bot-mid", class="column homepage">
         Most discussed user: <%= link_to User.most_commented.name, user_path(User.most_commented) %> has <br><%= User.most_commented.commented %> comments on their cocktails
     </div>
         
-    <div id="bot-right", class="column">
+    <div id="bot-right", class="column homepage">
         <%= link_to "Random User", user_path(User.all.sample) %><br>
     </div>
 
