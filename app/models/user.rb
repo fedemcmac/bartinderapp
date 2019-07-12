@@ -4,7 +4,10 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_secure_password
     validates :name, uniqueness: true
+    validates :name, presence: true
     validates :email, uniqueness: true
+    validates :email, presence: true
+    
     
     
     def self.most_cocktails
