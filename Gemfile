@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+#added rubyzip for vulnerability issue in version <=1.3.0
+gem "rubyzip", ">= 1.3.0"
 #added nokogiri for vulnerability issue in version 1.10.4
 gem "nokogiri", ">= 1.10.4"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
