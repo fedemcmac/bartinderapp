@@ -25,14 +25,17 @@ Fork and clone this repository.
 
 ## Installation
 
-Move into the backend directory of this project.
-Use the gem manager [bundler](https://bundler.io/v2.0/guides/rails.html) to install all dependencies. Start the Rails server.
+On a new terminal tab, use the gem manager [bundler](https://bundler.io/) to install all dependencies. Create, migrate and seed the database. Start the Rails server. To do all this, run these commands, one at the time.
 
 ```bash
 cd backend
 bundle install
+rails db:create
+rails db:migrate
+rails db:seed
 rails start
 ```
+
 Visit localhost:3000.
 
 ### All good to go!
