@@ -1,6 +1,6 @@
-# Whatsyourcocktail
+# Bartinderapp
 
-Use Whatsyourcocktail to create cocktail recipes, browse others' cocktails, like and comment on them.
+Use Bartinderapp to create cocktail recipes, browse others' cocktails, like and comment on them.
 
 ## Prerequisites
 
