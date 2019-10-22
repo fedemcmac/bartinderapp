@@ -1,24 +1,38 @@
-# README
+# Whatsyourcocktail
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Use Whatsyourcocktail to create cocktail recipes, browse others' cocktails, like and comment on them.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+Make sure you have installed:
+  * Ruby, version 2.2.2 or newer
+  * Postgres
+  * Rails
 
-* System dependencies
+You can check in the terminal:
 
-* Configuration
+```bash
+ruby -v
+rails -v
+postgres -V
+```
 
-* Database creation
+This should output some information on the installed versions.
+If not, you can refer to the [Ruby](https://www.ruby-lang.org/en/documentation/installation/), [Postgres](https://www.postgresql.org/) and [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html) documentation.
+## Getting Started
 
-* Database initialization
+Fork and clone this repository.
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+Move into the backend directory of this project.
+Use the gem manager [bundler](https://bundler.io/v2.0/guides/rails.html) to install all dependencies. Start the Rails server.
 
-* Deployment instructions
+```bash
+cd backend
+bundle install
+rails start
+```
+Visit localhost:3000.
 
-* ...
+### All good to go!
