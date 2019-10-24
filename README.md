@@ -2,6 +2,8 @@
 
 Use Bartinderapp to create cocktail recipes, browse others' cocktails, like and comment on them.
 
+![](bartinderapp.gif)
+
 ## Prerequisites
 
 Make sure you have installed:
@@ -35,6 +37,6 @@ rails db:seed
 rails start
 ```
 
-Visit localhost:3000.
+Visit localhost:3000/welcome.
 
 ### All good to go!
